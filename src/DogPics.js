@@ -10,13 +10,15 @@ function DogPics() {
     fetch("https://dog.ceo/api/breeds/image/random/3")
       .then((r) => r.json())
       .then((data) => {
-        console.log("setState");
+        console.log(data);
+        //passing all image urls, as object to setImages
         setImages(data.message);
       });
-  });
+  }, []);
 
   console.log("render");
 
+  //going through all the images in the object and displaying all of them.
   return (
     <div>
       {images.map((image) => (
